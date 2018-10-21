@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
@@ -131,7 +132,8 @@ namespace KiteConsole_v2
                                     SquareOffTarget = Convert.ToInt32(dr["SquareOffTarget"]),
                                     TotalPosition = Convert.ToInt32(dr["TotalPosition"]),
                                     Expiry = Convert.ToDateTime(dr["Expiry"]),
-                                    Interval = Convert.ToString(dr["Interval"])
+                                    Interval = Convert.ToString(dr["Interval"]),
+                                    Active = Convert.ToBoolean(dr["Active"])
                                 };
 
                                 if (string.IsNullOrEmpty(positionSettings.Indicator)) positionSettings.Indicator = "EMA";
@@ -268,17 +270,19 @@ namespace KiteConsole_v2
                     if (positionSettings.BuyOnlyOption == true && positionSettings.CMode == IndicatorMode.Buy)
                         positionSettings.MaxPostion = positionSettings.TotalPosition;
 
-                    //Expiry Date - Square off
-                    //DateTime indianDateTime = GetIndianDateTime();
-                    //if (positionSettings.Expiry.ToString("yyyy-MM-dd") == Convert.ToDateTime(indianDateTime).ToString("yyyy-MM-dd"))
-                    //{
-                    //    if (indianDateTime.Hour > 15)
-                    //    {
-                    //        if (IsNegative) positionSettings.CMode = IndicatorMode.Buy;
-                    //        if (!IsNegative) positionSettings.CMode = IndicatorMode.Sell;
-                    //        //Update Active flag
-                    //    }
-                    //}
+                    // Expiry Date -Square off
+                    DateTime indianDateTime = GetIndianDateTime();
+                    if (positionSettings.Expiry.ToString("yyyy-MM-dd") == Convert.ToDateTime(indianDateTime).ToString("yyyy-MM-dd"))
+                    {
+                        if (indianDateTime.Hour >= 15 && indianDateTime.Minute > 15)
+                        {
+                            if (IsNegative) positionSettings.CMode = IndicatorMode.Buy;
+                            if (!IsNegative) positionSettings.CMode = IndicatorMode.Sell;
+                            //Update Active flag
+                            positionSettings.Active = false;
+                            ActivateNextMonthSeries(positionSettings);
+                        }
+                    }
 
                     if (IndicatorMode.Buy == positionSettings.CMode)
                     {
@@ -340,6 +344,36 @@ namespace KiteConsole_v2
                 ExceptionLog(ex);
             }
             Thread.Sleep(2000);
+        }
+
+        private static void ActivateNextMonthSeries(PositionSettings positionSettings)
+        {
+            string connectionString = ConfigurationManager.AppSettings["KiteDB"];
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string tradingSymbolNextMonth = string.Empty;
+                if (GetIndianDateTime().Month != 12)
+                {
+                    tradingSymbolNextMonth = positionSettings.TradingSymbol.Substring(0,
+                       positionSettings.TradingSymbol.IndexOf(positionSettings.Expiry.Year.ToString().Substring(2, 2))) + positionSettings.Expiry.Year.ToString().Substring(2, 2)
+                       + CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(GetIndianDateTime().Month + 1).ToUpperInvariant() + "FUT";
+                }
+                else
+                {
+                    tradingSymbolNextMonth = positionSettings.TradingSymbol.Substring(0,
+                       positionSettings.TradingSymbol.IndexOf(positionSettings.Expiry.Year.ToString().Substring(2, 2))) + (positionSettings.Expiry.Year + 1).ToString().Substring(2, 2)
+                       + CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(1).ToUpperInvariant() + "FUT";
+                }
+                string commandText = "UPDATE [PostionSettings] SET [Active] = 'True' WHERE [TradingSymbol]='" + tradingSymbolNextMonth + "'";
+
+                SqlCommand command = new SqlCommand(commandText, conn)
+                {
+                    CommandType = System.Data.CommandType.Text,
+                };
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
         }
 
         private static void ExecuteTrade(PositionSettings positionSettings)
@@ -500,6 +534,7 @@ namespace KiteConsole_v2
                                                                 "', [IsTargetAchieved] = '" + positionSettings.IsTargetAchieved.ToString() +
                                                                 "', [MaxPostion] = '" + positionSettings.MaxPostion +
                                                                 "', [LastUpdateTime] = '" + GetIndianDateTime().ToString("yyyy-MM-dd HH:mm:ss") +
+                                                                "', [Active] = '" + positionSettings.Active +
                                                                 "' WHERE [TradingSymbol]='" + positionSettings.TradingSymbol +
                                                                 "'";
 
@@ -536,14 +571,14 @@ namespace KiteConsole_v2
             lock (thisLockPlaceOrder)
             {
 
-                //kite.PlaceOrder(Exchange: exchange,
-                //                            TradingSymbol: tradingSymbol,
-                //                            TransactionType: tRANSACTION_TYPE,
-                //                            Quantity: quantity,
-                //                            Price: bidPrice,
-                //                            OrderType: oRDER_TYPE, //Check this
-                //                            Product: ProductType
-                //                        );
+                kite.PlaceOrder(Exchange: exchange,
+                                            TradingSymbol: tradingSymbol,
+                                            TransactionType: tRANSACTION_TYPE,
+                                            Quantity: quantity,
+                                            Price: bidPrice,
+                                            OrderType: oRDER_TYPE, //Check this
+                                            Product: ProductType
+                                        );
                 Thread.Sleep(200);
             }
         }
@@ -636,6 +671,7 @@ namespace KiteConsole_v2
         {
             var indianZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
             var timeInIndia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, indianZone);//.ToString("yyyy-MM-dd HH:mm:ss");
+            timeInIndia = Convert.ToDateTime("28-12-2018 15:16:32.000");
             return timeInIndia;
         }
 
