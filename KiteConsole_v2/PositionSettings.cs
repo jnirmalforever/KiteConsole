@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KiteConsole_v2
 {
-    public class PositionSettings
+    [Serializable]
+    public class Settings
     {
         internal IndicatorMode StableMode;
 
@@ -45,5 +42,60 @@ namespace KiteConsole_v2
         public string Interval { get; internal set; }
         public decimal PL { get; internal set; }
         public DateTime Expiry { get; internal set; }
+        public string PointsInfo { get; internal set; }
+        public bool CurrentMonthExpired { get; internal set; } = false;
+        public decimal Margin { get; internal set; }
+        public string ParentInstrument { get; internal set; }
+        public double IndicatorParmOne { get; internal set; }
+        public decimal TotalPL { get; internal set; }
+        public bool IsTestRun { get; internal set; } = false;
+        public Int32 TradeAmount { get; internal set; }
+        public string InstrumentType { get; internal set; }
+        public bool IsSTEnabled { get; set; }
+        public bool IsRSIEnabled { get; set; }
+        public bool IsMACDEnabled { get; set; }
+        public decimal STPL { get; internal set; }
+        public decimal STTradeCount { get; internal set; }
+        public decimal STBasicSetting { get; internal set; }
+        public bool IsDepth { get; internal set; } = true;
+        public bool IsAdxEnabled { get; internal set; }
+        public decimal MacdNoise { get; set; } = 2;
+        public bool Rule1 { get; internal set; } = true;
+        public bool Rule2 { get; internal set; } = true;
+        public bool Rule3 { get; internal set; } = true;
+        public bool Rule4 { get; internal set; } = true;
+        public bool Rule5 { get; internal set; } = true;
+        public bool Rule6 { get; internal set; } = true;
+        public bool Rule7 { get; internal set; } = true;
+        public bool Rule8 { get; internal set; } = true;
+        public bool Rule9 { get; internal set; } = true;
+        public bool Rule10 { get; internal set; } = true;
+        public bool Rule11 { get; internal set; } = true;
+        public bool SellRSITriggered { get; internal set; }
+        public bool SellRSITrigger { get; internal set; }
+        public bool BuyRSITriggered { get; internal set; }
+        public bool BuyRSITrigger { get; internal set; }
+        public bool SellMACDTriggered { get; internal set; }
+        public bool SellMACDTrigger { get; internal set; }
+        public bool BuyMACDTriggered { get; internal set; }
+        public bool BuyMACDTrigger { get; internal set; }
+        public RunSettings runSettings { get; internal set; }
+        public int MFIPeriod { get; set; } = 14;
+        public bool SellMFITriggered { get; internal set; }
+        public bool SellMFITrigger { get; internal set; }
+        public bool BuyMFITriggered { get; internal set; }
+        public bool BuyMFITrigger { get; internal set; }
+        public bool MFITakeOff { get; internal set; }
+        public IndicatorMode WFFMode { get; internal set; }
+        public bool BuyOnLeadingSpanA { get; internal set; }
+        public bool SellOnLeadingSpanB { get; internal set; }
+        public bool MFIOff { get; internal set; }
+        public decimal maxLeadingSpan { get; internal set; }
+        public decimal minLeadingSpan { get; internal set; }
+        public bool BuyonShortRule1 { get; internal set; }
+        public int MFIBuyCount { get; internal set; } = 0;
+        public int RiskLevel { get; internal set; }
+        public DateTime FromDate { get; internal set; }
+        public DateTime ToDate { get; internal set; }
     }
 }

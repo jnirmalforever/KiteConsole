@@ -14,7 +14,112 @@ namespace KiteConsole_v2
 {
     public class EMAv1 : IIndicator
     {
-        public PositionSettings StartLooking(PositionSettings positionSettings, Kite kite)
+        public Position StartLooking(Settings positionSettings, Kite kite, List<Attributes> Attributes = null)
+        {
+            positionSettings.CMode = IndicatorMode.None;
+            positionSettings.IsCrossOver = false;
+
+            List<Historical> historical;
+            if (positionSettings.Interval == null)
+            {
+                positionSettings.Interval = Constants.INTERVAL_60MINUTE;
+            }
+
+            //if (string.IsNullOrEmpty(positionSettings.ParentToken))
+            //    historical = Program.GetHistoricalData(kite, positionSettings.InstrumentToken, GetIndianDateTime().AddDays(-30), GetIndianDateTime(), positionSettings.Interval, false);
+            //else
+            //    historical = Program.GetHistoricalData(kite, positionSettings.ParentToken, GetIndianDateTime().AddDays(-30), GetIndianDateTime(), positionSettings.Interval, false);
+
+
+            if (Attributes.Count > 0)
+            {
+                decimal longSMA = Decimal.Divide(Attributes.OrderBy(x => x.TimeStamp).Take(Constants.longEMA).Sum(x => x.Close), Constants.longEMA);
+                decimal shortSMA = Decimal.Divide(Attributes.OrderBy(x => x.TimeStamp).Skip(Constants.longEMA - Constants.shortEMA)
+                                            .Take(Constants.shortEMA).Sum(x => x.Close), Constants.shortEMA);
+
+                List<EMAAttributes> emaAttributes = Attributes.OrderBy(x => x.TimeStamp).Skip(Constants.longEMA)
+                                            .Select(x => new EMAAttributes
+                                            {
+                                                Close = x.Close,
+                                                TimeStamp = x.TimeStamp
+                                            }).OrderBy(x => x.TimeStamp).ToList();
+
+                decimal lm = Decimal.Divide(2, (Constants.longEMA + 1));
+                decimal sm = Decimal.Divide(2, (Constants.shortEMA + 1));
+
+                //Calculating the EMA: [Closing price-EMA (previous day)] x multiplier + EMA (previous day)
+
+
+                foreach (EMAAttributes att in emaAttributes)
+                {
+                    int i = emaAttributes.IndexOf(att);
+                    if (i == 0)
+                    {
+                        att.LongEMA = (att.Close - longSMA) * lm + longSMA;
+                        att.ShortEMA = (att.Close - shortSMA) * sm + shortSMA;
+                    }
+                    else
+                    {
+                        att.LongEMA = (att.Close - emaAttributes[i - 1].LongEMA) * lm + emaAttributes[i - 1].LongEMA;
+                        att.ShortEMA = (att.Close - emaAttributes[i - 1].ShortEMA) * sm + emaAttributes[i - 1].ShortEMA;
+                    }
+                }
+
+                EMAAttributes pcClose = emaAttributes[emaAttributes.Count - 2];
+                EMAAttributes ccClose = emaAttributes[emaAttributes.Count - 1];
+
+
+                if (pcClose.ShortEMA > pcClose.LongEMA)
+                {
+                    positionSettings.pcCMode = IndicatorMode.Buy;
+                    positionSettings.pcCurrentMode = IndicatorMode.Buy;
+                }
+                else
+                {
+                    positionSettings.pcCMode = IndicatorMode.Sell;
+                    positionSettings.pcCurrentMode = IndicatorMode.Sell;
+                }
+
+                if (ccClose.ShortEMA > ccClose.LongEMA)
+                {
+                    positionSettings.CMode = IndicatorMode.Buy;
+                    positionSettings.CurrentMode = IndicatorMode.Buy;
+                }
+                else
+                {
+                    positionSettings.CMode = IndicatorMode.Sell;
+                    positionSettings.CurrentMode = IndicatorMode.Sell;
+                }
+
+                positionSettings.NewLongEMA = ccClose.LongEMA;
+                positionSettings.NewShortEMA = ccClose.ShortEMA;
+
+                if (positionSettings.TradeOnCrossOver == true)
+                    positionSettings = CheckCrossOver(positionSettings);
+
+                positionSettings = LogCrossOver(positionSettings); //Log Crossover
+
+                if (positionSettings.TradeOnCrossOverUpdate == true)
+                {
+                    positionSettings.CMode = IndicatorMode.None;
+                    positionSettings.TradeOnCrossOver = true;
+                    positionSettings.TradeOnCrossOverUpdate = false;
+                }
+
+                //Remove false signals 
+                if (positionSettings.CMode != IndicatorMode.None)
+                {
+                    positionSettings = CheckforStableMode(positionSettings);
+                }
+
+                UpdateDB(positionSettings);
+            }
+            //return /*positionSettings*/;
+            return null;
+        }
+
+
+        public Settings StartLooking(Settings positionSettings, Kite kite)
         {
             positionSettings.CMode = IndicatorMode.None;
             positionSettings.IsCrossOver = false;
@@ -116,7 +221,7 @@ namespace KiteConsole_v2
             }
             return positionSettings;
         }
-        private static void Log(string exchange, string tradingSymbol, decimal item1, decimal item2, int futureCount, decimal bidPrice, IndicatorMode currentMode, PositionSettings positionSettings)
+        private static void Log(string exchange, string tradingSymbol, decimal item1, decimal item2, int futureCount, decimal bidPrice, IndicatorMode currentMode, Settings positionSettings)
         {
             string connectionString = ConfigurationManager.AppSettings["KiteDB"];
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -133,7 +238,7 @@ namespace KiteConsole_v2
             }
         }
 
-        private PositionSettings LogCrossOver(PositionSettings positionSettings)
+        private Settings LogCrossOver(Settings positionSettings)
         {
             if ((positionSettings.ShortEMA > positionSettings.LongEMA) && (positionSettings.NewShortEMA > positionSettings.NewLongEMA))
             {
@@ -150,7 +255,7 @@ namespace KiteConsole_v2
             return positionSettings;
         }
 
-        private PositionSettings CheckforStableMode(PositionSettings positionSettings)
+        private Settings CheckforStableMode(Settings positionSettings)
         {
             if (positionSettings.StableTime == 0)
                 positionSettings.StableTime = 30;
@@ -201,7 +306,7 @@ namespace KiteConsole_v2
         }
 
 
-        private PositionSettings CheckCrossOver(PositionSettings positionSettings)
+        private Settings CheckCrossOver(Settings positionSettings)
         {
             if ((positionSettings.ShortEMA > positionSettings.LongEMA) && (positionSettings.NewShortEMA > positionSettings.NewLongEMA))
             {
@@ -219,7 +324,7 @@ namespace KiteConsole_v2
             return positionSettings;
         }
 
-        private void UpdateDB(PositionSettings positionSettings)
+        private void UpdateDB(Settings positionSettings)
         {
             string connectionString = ConfigurationManager.AppSettings["KiteDB"];
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -249,6 +354,6 @@ namespace KiteConsole_v2
             return timeInIndia;
         }
 
-
+        
     }
 }

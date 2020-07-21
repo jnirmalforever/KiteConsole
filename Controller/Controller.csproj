@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="GenericParsing">
+      <HintPath>..\..\KiteConsole_v3\packages\GenericParser.1.1.5\lib\net20\GenericParsing.dll</HintPath>
+    </Reference>
+    <Reference Include="KiteConnect">
+      <HintPath>..\..\KiteConsole_v3\packages\Tech.Zerodha.KiteConnect.3.0.0\lib\KiteConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Configuration.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

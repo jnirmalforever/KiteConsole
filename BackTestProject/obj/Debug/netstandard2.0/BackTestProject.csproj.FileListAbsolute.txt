@@ -1,0 +1,18 @@
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\BackTestProject\bin\Debug\netstandard2.0\BackTestProject.deps.json
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\BackTestProject\bin\Debug\netstandard2.0\BackTestProject.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\BackTestProject\bin\Debug\netstandard2.0\BackTestProject.pdb
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.csprojAssemblyReference.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.csproj.CoreCompileInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.AssemblyInfoInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.AssemblyInfo.cs
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.pdb
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\BackTestProject\bin\Debug\netstandard2.0\BackTestProject.deps.json
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\BackTestProject\bin\Debug\netstandard2.0\BackTestProject.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\BackTestProject\bin\Debug\netstandard2.0\BackTestProject.pdb
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.csprojAssemblyReference.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.csproj.CoreCompileInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.AssemblyInfoInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.AssemblyInfo.cs
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\BackTestProject\obj\Debug\netstandard2.0\BackTestProject.pdb

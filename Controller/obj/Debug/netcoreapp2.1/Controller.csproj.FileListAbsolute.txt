@@ -1,0 +1,4 @@
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Controller\obj\Debug\netcoreapp2.1\Controller.csprojAssemblyReference.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Controller\obj\Debug\netcoreapp2.1\Controller.csproj.CoreCompileInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Controller\obj\Debug\netcoreapp2.1\Controller.AssemblyInfoInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Controller\obj\Debug\netcoreapp2.1\Controller.AssemblyInfo.cs

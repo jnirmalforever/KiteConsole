@@ -19,11 +19,39 @@ C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v2\KiteConsole_v2\obj\Debug\KiteCons
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\bin\Debug\KiteConsole_v2.exe.config
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\bin\Debug\KiteConsole_v2.exe
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\bin\Debug\KiteConsole_v2.pdb
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\bin\Debug\GenericParsing.dll
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\bin\Debug\KiteConnect.dll
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\bin\Debug\GenericParsing.xml
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\bin\Debug\Newtonsoft.Json.xml
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\obj\Debug\KiteConsole_v2.csproj.CoreCompileInputs.cache
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\obj\Debug\KiteConsole_v2.csproj.CopyComplete
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\obj\Debug\KiteConsole_v2.exe
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\obj\Debug\KiteConsole_v2.pdb
 C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\KiteConsole_v2\obj\Debug\KiteConsole_v2.csprojAssemblyReference.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\obj\Debug\KiteConsole_v2.csproj.CoreCompileInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\obj\Debug\KiteConsole_v2.exe
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\obj\Debug\KiteConsole_v2.pdb
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\KiteConsole_v2.exe.config
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\KiteConsole_v2.exe
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\KiteConsole_v2.pdb
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\GenericParsing.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\KiteConnect.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\GenericParsing.xml
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\obj\Debug\KiteConsole_v2.csproj.CopyComplete
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\KiteConsole_v2\obj\Debug\KiteConsole_v2.csprojAssemblyReference.cache
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\KiteConsole_v2.exe.config
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\KiteConsole_v2.exe
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\KiteConsole_v2.pdb
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\GenericParsing.dll
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\KiteConnect.dll
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\GenericParsing.xml
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\obj\Debug\KiteConsole_v2.csprojAssemblyReference.cache
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\obj\Debug\KiteConsole_v2.csproj.CoreCompileInputs.cache
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\obj\Debug\KiteConsole_v2.csproj.CopyComplete
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\obj\Debug\KiteConsole_v2.exe
+C:\Users\jnirmalforever\Downloads\KiteConsole_v3 - Copy\KiteConsole_v3 - Copy\KiteConsole_v2\obj\Debug\KiteConsole_v2.pdb

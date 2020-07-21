@@ -18,10 +18,11 @@ namespace KiteConsole_v2
         public DateTime TimeStamp { get; set; }
         public decimal LongEMA { get; set; }
         public decimal ShortEMA { get; set; }
+        public IndicatorMode EMAMode { get; internal set; }
     }
     public class EMA : IIndicator
     {
-        public PositionSettings StartLooking(PositionSettings positionSettings, Kite kite)
+        public Settings StartLooking(Settings positionSettings, Kite kite)
         {
             positionSettings.CMode = IndicatorMode.None;
             positionSettings.IsCrossOver = false;
@@ -100,7 +101,7 @@ namespace KiteConsole_v2
             }
             return positionSettings;
         }
-        private static void Log(string exchange, string tradingSymbol, decimal item1, decimal item2, int futureCount, decimal bidPrice, IndicatorMode currentMode, PositionSettings positionSettings)
+        private static void Log(string exchange, string tradingSymbol, decimal item1, decimal item2, int futureCount, decimal bidPrice, IndicatorMode currentMode, Settings positionSettings)
         {
             string connectionString = ConfigurationManager.AppSettings["KiteDB"];
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -117,7 +118,7 @@ namespace KiteConsole_v2
             }
         }
 
-        private PositionSettings LogCrossOver(PositionSettings positionSettings)
+        private Settings LogCrossOver(Settings positionSettings)
         {
             if ((positionSettings.ShortEMA > positionSettings.LongEMA) && (positionSettings.NewShortEMA > positionSettings.NewLongEMA))
             {
@@ -135,7 +136,7 @@ namespace KiteConsole_v2
             return positionSettings;
         }
 
-        private PositionSettings CheckforStableMode(PositionSettings positionSettings)
+        private Settings CheckforStableMode(Settings positionSettings)
         {
             if (positionSettings.StableTime == 0)
                 positionSettings.StableTime = 30;
@@ -181,7 +182,7 @@ namespace KiteConsole_v2
         }
 
 
-        private PositionSettings CheckCrossOver(PositionSettings positionSettings)
+        private Settings CheckCrossOver(Settings positionSettings)
         {
             if ((positionSettings.ShortEMA > positionSettings.LongEMA) && (positionSettings.NewShortEMA > positionSettings.NewLongEMA))
             {
@@ -199,7 +200,7 @@ namespace KiteConsole_v2
             return positionSettings;
         }
 
-        private void UpdateDB(PositionSettings positionSettings)
+        private void UpdateDB(Settings positionSettings)
         {
             string connectionString = ConfigurationManager.AppSettings["KiteDB"];
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -229,6 +230,9 @@ namespace KiteConsole_v2
             return timeInIndia;
         }
 
-
+        public Position StartLooking(Settings positionSettings, Kite kite, List<Attributes> Attributes)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

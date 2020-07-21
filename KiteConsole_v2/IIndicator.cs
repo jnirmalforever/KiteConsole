@@ -1,30 +1,37 @@
 ﻿using KiteConnect;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KiteConsole_v2
 {
 
     public interface IIndicator
     {
-        PositionSettings StartLooking(PositionSettings positionSettings, Kite kite);
+        Position StartLooking(Settings positionSettings, Kite kite, List<Attributes> Attributes);
+        Settings StartLooking(Settings positionSettings, Kite kite);
     }
     public enum IndicatorMode
     {
         Buy = 1,
         Sell = -1,
-        None = 0
-
+        None = 0,
+        BuyNWait = 2,
+        SellNWait = 3,
+        WaitForFlip = 4,
+        NoTrade = 5,
+        SquareOff = 6
+    }
+    public enum HACandle
+    {
+        Green = 1,
+        Red = -1,
+        None = 0,
     }
 
     public class Constants
     {
-        public const int longEMA = 14;
-        public const int shortEMA = 4;
-        public const int SuperTrend = 14;
+
+        public const decimal minimumAF = 0.01M;
+        public const decimal maximumAF = 0.22M;
         public const string PRODUCT_MIS = "MIS";
         public const string EXCHANGE_BFO = "BFO";
         public const string EXCHANGE_MCX = "MCX";
@@ -64,5 +71,18 @@ namespace KiteConsole_v2
         public const string VALIDITY_DAY = "DAY";
         public const string VALIDITY_IOC = "IOC";
         public const string INTERVAL_DAY = "day";
+        public const double STMultiplier = 1.5;
+        public const int MomentumPeriod = 14;
+        public const int RSIPeriod = 14;
+        public const int MACDEMA1 = 12;
+        public const int MACDEMA2 = 26;
+        public const int MACDSignalLine = 9;
+        public const int ADXn = 14;
+        public const int longEMA = 20;
+        public const int shortEMA = 10;
+        public const int SuperTrend = 14;
+        public const int adxEMA = 5;
+
+
     }
 }

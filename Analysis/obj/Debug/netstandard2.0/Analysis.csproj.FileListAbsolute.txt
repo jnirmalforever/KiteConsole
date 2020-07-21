@@ -1,0 +1,18 @@
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\Analysis\bin\Debug\netstandard2.0\Analysis.deps.json
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\Analysis\bin\Debug\netstandard2.0\Analysis.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\Analysis\bin\Debug\netstandard2.0\Analysis.pdb
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\Analysis\obj\Debug\netstandard2.0\Analysis.csprojAssemblyReference.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\Analysis\obj\Debug\netstandard2.0\Analysis.csproj.CoreCompileInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\Analysis\obj\Debug\netstandard2.0\Analysis.AssemblyInfoInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\Analysis\obj\Debug\netstandard2.0\Analysis.AssemblyInfo.cs
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\Analysis\obj\Debug\netstandard2.0\Analysis.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3\Analysis\obj\Debug\netstandard2.0\Analysis.pdb
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Analysis\bin\Debug\netstandard2.0\Analysis.deps.json
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Analysis\bin\Debug\netstandard2.0\Analysis.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Analysis\bin\Debug\netstandard2.0\Analysis.pdb
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Analysis\obj\Debug\netstandard2.0\Analysis.csprojAssemblyReference.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Analysis\obj\Debug\netstandard2.0\Analysis.csproj.CoreCompileInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Analysis\obj\Debug\netstandard2.0\Analysis.AssemblyInfoInputs.cache
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Analysis\obj\Debug\netstandard2.0\Analysis.AssemblyInfo.cs
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Analysis\obj\Debug\netstandard2.0\Analysis.dll
+C:\Users\jnirm\OneDrive\Desktop\KiteConsole_v3 - Copy\Analysis\obj\Debug\netstandard2.0\Analysis.pdb

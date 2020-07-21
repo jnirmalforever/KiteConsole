@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GenericParsing, Version=1.1.5.29274, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GenericParser.1.1.5\lib\net20\GenericParsing.dll</HintPath>
+    </Reference>
     <Reference Include="KiteConnect, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Tech.Zerodha.KiteConnect.3.0.0\lib\KiteConnect.dll</HintPath>
     </Reference>
@@ -49,14 +52,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algo_v2.cs" />
+    <Compile Include="Algo.cs" />
+    <Compile Include="Attributes.cs" />
+    <Compile Include="Cloud.cs" />
+    <Compile Include="HA.cs" />
+    <Compile Include="IterateOnIndicator.cs" />
+    <Compile Include="MFI.cs" />
+    <Compile Include="ADX.cs" />
+    <Compile Include="DAL.cs" />
     <Compile Include="EMAv1.cs" />
     <Compile Include="EMA.cs" />
     <Compile Include="IIndicator.cs" />
+    <Compile Include="MACD.cs" />
+    <Compile Include="Misc.cs" />
+    <Compile Include="Momentum.cs" />
     <Compile Include="PositionSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\PSARv1.cs" />
+    <Compile Include="PSAR.cs" />
+    <Compile Include="RSI.cs" />
+    <Compile Include="RSI_v1.cs" />
+    <Compile Include="RunSettings.cs" />
+    <Compile Include="SettingsCalc.cs" />
     <Compile Include="SMI.cs" />
     <Compile Include="SuperTrend.cs" />
+    <Compile Include="SuperTrendTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
